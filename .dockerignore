@@ -1,0 +1,5 @@
+*.pth  # We'll handle this separately
+__pycache__/
+*.pyc
+.env
+venv/
