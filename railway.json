@@ -1,10 +1,17 @@
 {
   "build": {
     "nixpacks": {
-      "buildImage": "nixpkgs/nixpkgs:22.05-docker",
       "phases": {
         "setup": {
-          "aptPkgs": ["python3-pip"]
+          "aptPkgs": ["python3-dev", "gcc", "libgl1"]
+        },
+        "install": {
+          "cmds": [
+            "python -m venv /opt/venv",
+            ". /opt/venv/bin/activate",
+            "pip install --upgrade pip",
+            "pip install -r requirements.txt --no-cache-dir"
+          ]
         }
       }
     }
